@@ -180,7 +180,7 @@ p img {
 p.lead {
   font-family: "Lora", serif;
   font-weight: 300;
-  font-size: 2.4rem;
+  font-size: 1.7rem;
   line-height: 1.833;
   margin-bottom: 3.6rem;
   color: #ffffff;
@@ -1923,7 +1923,7 @@ input::-moz-focus-inner {
   background-color: #02182c;
   background-repeat: no-repeat;
   background-position: top center;
-  background-image: url(../images/gloria.jpg);
+  background-image: url(../images/ee.jpg);
   background-size: cover;
   position: absolute;
   top: 20%;
@@ -2283,7 +2283,6 @@ input::-moz-focus-inner {
   padding-left: 5.6rem;
   padding-bottom: .8rem;
   margin-top: 2.8rem;
-  min-height: 35.6rem;
 }
 
 .timeline .timeline__block:last-child {
@@ -2511,7 +2510,7 @@ input::-moz-focus-inner {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  background-image: url(../images/g.jpg);
+  background-image: url(../images/gg.jpg);
   color: rgba(255, 255, 255, 0.7);
   position: relative;
 }
