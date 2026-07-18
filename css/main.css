@@ -785,7 +785,6 @@ select:-webkit-autofill:focus {
 }
 
 
-
 /* ===================================================================
  * # buttons
  *
@@ -980,18 +979,6 @@ input::-moz-focus-inner {
   content: counter(definitions, decimal) ". ";
 }
 
-/** 
- * Pull Quotes
- * -----------
- * markup:
- *
- * <aside class="pull-quote">
- *    <blockquote>
- *      <p></p>
- *    </blockquote>
- *  </aside>
- *
- * --------------------------------------------------------------------- */
 .pull-quote {
   position: relative;
   padding: 2.4rem 3.2rem 2.4rem 0px;
@@ -1038,18 +1025,6 @@ input::-moz-focus-inner {
   content: none;
 }
 
-/** 
- * Stats Tab
- * ---------
- * markup:
- *
- * <ul class="stats-tabs">
- *    <li><a href="#">[value]<em>[name]</em></a></li>
- *  </ul>
- *
- * Extend this object into your markup.
- *
- * --------------------------------------------------------------------- */
 .stats-tabs {
   padding: 0;
   margin: 3.2rem 0;
@@ -1153,85 +1128,26 @@ input::-moz-focus-inner {
   content: "";
 }
 
-.skill-bars li .percent5 {
-  width: 5%;
-}
-
-.skill-bars li .percent10 {
-  width: 10%;
-}
-
-.skill-bars li .percent15 {
-  width: 15%;
-}
-
-.skill-bars li .percent20 {
-  width: 20%;
-}
-
-.skill-bars li .percent25 {
-  width: 25%;
-}
-
-.skill-bars li .percent30 {
-  width: 30%;
-}
-
-.skill-bars li .percent35 {
-  width: 35%;
-}
-
-.skill-bars li .percent40 {
-  width: 40%;
-}
-
-.skill-bars li .percent45 {
-  width: 45%;
-}
-
-.skill-bars li .percent50 {
-  width: 50%;
-}
-
-.skill-bars li .percent55 {
-  width: 55%;
-}
-
-.skill-bars li .percent60 {
-  width: 60%;
-}
-
-.skill-bars li .percent65 {
-  width: 65%;
-}
-
-.skill-bars li .percent70 {
-  width: 70%;
-}
-
-.skill-bars li .percent75 {
-  width: 75%;
-}
-
-.skill-bars li .percent80 {
-  width: 80%;
-}
-
-.skill-bars li .percent85 {
-  width: 85%;
-}
-
-.skill-bars li .percent90 {
-  width: 90%;
-}
-
-.skill-bars li .percent95 {
-  width: 95%;
-}
-
-.skill-bars li .percent100 {
-  width: 100%;
-}
+.skill-bars li .percent5 { width: 5%; }
+.skill-bars li .percent10 { width: 10%; }
+.skill-bars li .percent15 { width: 15%; }
+.skill-bars li .percent20 { width: 20%; }
+.skill-bars li .percent25 { width: 25%; }
+.skill-bars li .percent30 { width: 30%; }
+.skill-bars li .percent35 { width: 35%; }
+.skill-bars li .percent40 { width: 40%; }
+.skill-bars li .percent45 { width: 45%; }
+.skill-bars li .percent50 { width: 50%; }
+.skill-bars li .percent55 { width: 55%; }
+.skill-bars li .percent60 { width: 60%; }
+.skill-bars li .percent65 { width: 65%; }
+.skill-bars li .percent70 { width: 70%; }
+.skill-bars li .percent75 { width: 75%; }
+.skill-bars li .percent80 { width: 80%; }
+.skill-bars li .percent85 { width: 85%; }
+.skill-bars li .percent90 { width: 90%; }
+.skill-bars li .percent95 { width: 95%; }
+.skill-bars li .percent100 { width: 100%; }
 
 /* ------------------------------------------------------------------- 
  * ## alert box 
@@ -1420,15 +1336,96 @@ input::-moz-focus-inner {
   background-color: transparent;
 }
 
-/* ------------------------------------------------------------------- 
- * responsive:
- * pagination
- * ------------------------------------------------------------------- */
 @media screen and (max-width:600px) {
   .pgn ul {
     padding: 0 5.2rem;
   }
 
+}
+
+
+
+/* ===================================================================
+ * # GRID SYSTEM (row / column)
+ * Added so the layout arranges correctly on its own — this project's
+ * base.css/vendor.css (which normally supply the row/column grid)
+ * were not included, so the classes used throughout the markup
+ * (row, column, large-*, tab-full, mob-full, medium-full, block-*)
+ * had no definitions. Nothing in the HTML or existing rules above
+ * was changed — this block only supplies what was missing.
+ * ------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.row {
+  position: relative;
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.column {
+  padding: 0 15px;
+  width: 100%;
+}
+
+/* full / half / thirds */
+.large-full { flex: 0 0 100%; max-width: 100%; }
+.large-half { flex: 0 0 50%; max-width: 50%; }
+.large-9    { flex: 0 0 75%; max-width: 75%; }
+.large-7    { flex: 0 0 58.3333%; max-width: 58.3333%; }
+.large-5    { flex: 0 0 41.6667%; max-width: 41.6667%; }
+.large-third { flex: 0 0 33.3333%; max-width: 33.3333%; }
+
+/* stack to full width at the tablet / mobile breakpoints already used
+   elsewhere in this stylesheet, so behaviour matches the rest of the
+   site's responsive rules */
+@media screen and (max-width:900px) {
+  .medium-full { flex: 0 0 100%; max-width: 100%; }
+}
+
+@media screen and (max-width:800px) {
+  .tab-full { flex: 0 0 100%; max-width: 100%; }
+}
+
+@media screen and (max-width:600px) {
+  .mob-full { flex: 0 0 100%; max-width: 100%; }
+
+  .row {
+    padding: 0 25px;
+  }
+}
+
+/* services grid (block-large-1-3 / block-medium-1-2 / block-tab-full) */
+.block-large-1-3 .column {
+  flex: 0 0 33.3333%;
+  max-width: 33.3333%;
+}
+
+@media screen and (max-width:1024px) {
+  .block-medium-1-2 .column {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+@media screen and (max-width:800px) {
+  .block-tab-full .column {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
 }
 
 
@@ -1452,6 +1449,8 @@ input::-moz-focus-inner {
 .heading-block--center {
   max-width: 940px;
   text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .section-heading {
@@ -1499,6 +1498,7 @@ input::-moz-focus-inner {
   line-height: 1.259;
   letter-spacing: -0.05rem;
   color: #ffffff;
+  text-align: left;
 }
 
 .item-title {
@@ -1515,10 +1515,6 @@ input::-moz-focus-inner {
   color: #ffffff;
 }
 
-/* ------------------------------------------------------------------- 
- * responsive:
- * common and reusable styles
- * ------------------------------------------------------------------- */
 @media screen and (max-width:1200px) {
   .item-title {
     font-size: 3rem;
@@ -1529,6 +1525,8 @@ input::-moz-focus-inner {
 @media screen and (max-width:1024px) {
   .heading-block {
     max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .section-desc {
@@ -1603,9 +1601,6 @@ input::-moz-focus-inner {
   left: 0;
 }
 
-/* -------------------------------------------------------------------
- * ## header logo
- * ------------------------------------------------------------------- */
 .header-logo {
   display: inline-block;
   margin: 6px 0 0 0;
@@ -1632,9 +1627,6 @@ input::-moz-focus-inner {
   margin: 0;
 }
 
-/* -------------------------------------------------------------------
- * ## main navigation
- * ------------------------------------------------------------------- */
 .header-nav-wrap {
   display: inline-block;
 }
@@ -1706,9 +1698,6 @@ input::-moz-focus-inner {
   color: #ffffff;
 }
 
-/* ------------------------------------------------------------------- 
- * ## menu trigger
- * ------------------------------------------------------------------- */
 .header-menu-toggle {
   display: none;
   height: 42px;
@@ -1788,10 +1777,6 @@ input::-moz-focus-inner {
   transform: rotate(225deg);
 }
 
-/* ------------------------------------------------------------------- 
- * responsive:
- * header
- * ------------------------------------------------------------------- */
 @media screen and (max-width:1200px) {
   .header-main-nav {
     font-size: 12px;
@@ -1868,7 +1853,6 @@ input::-moz-focus-inner {
     font-size: 1.8rem;
     margin-right: 1.6rem;
   }
-
   .header-nav-wrap .header-social li a {
     line-height: 36px;
   }
@@ -1886,9 +1870,7 @@ input::-moz-focus-inner {
 
 }
 
-/* -------------------------------------------------------------------
- * make sure the menu is visible on larger screens
- * ------------------------------------------------------------------- */
+
 @media only screen and (min-width:801px) {
   .header-nav-wrap {
     display: block !important;
@@ -1907,14 +1889,13 @@ input::-moz-focus-inner {
   height: 100vh;
   min-height: 792px;
   background-color: #050505;
+  overflow: hidden;
 }
 
 .intro-content {
   height: 100%;
   max-width: 1140px;
   padding-top: 20vh;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
   align-items: center;
   position: relative;
 }
@@ -1957,7 +1938,7 @@ input::-moz-focus-inner {
 .intro-text {
   -webkit-transform: translate3d(0, -3.6rem, 0);
   transform: translate3d(0, -3.6rem, 0);
-  position: static;
+  position: relative;
   z-index: 1;
 }
 
@@ -2008,10 +1989,6 @@ input::-moz-focus-inner {
   background-color: #cf6717;
 }
 
-/* ------------------------------------------------------------------- 
- * responsive:
- * intro
- * ------------------------------------------------------------------- */
 @media screen and (max-width:1400px) {
   .intro-text h3 {
     font-size: 2.2rem;
@@ -2062,22 +2039,22 @@ input::-moz-focus-inner {
 
 @media screen and (max-width:800px) {
   .intro-content {
-    width: 88%;
     padding-top: 8rem;
   }
 
   .intro-pic {
-    top: 12%;
-    left: 40%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
   }
 
   .intro-pic::before {
-    opacity: .4;
+    opacity: .55;
   }
 
   .intro-grid {
-    top: 20%;
-    opacity: .1;
+    display: none;
   }
 
   .intro-text h3 {
@@ -2087,39 +2064,17 @@ input::-moz-focus-inner {
   .intro-text h1 {
     font-size: 5.6rem;
   }
-
 }
 
 @media screen and (max-width:700px) {
   .intro-text h1 {
     font-size: 5rem;
   }
-
-  .intro-pic {
-    left: 30%;
-  }
-
-  .intro-grid {
-    left: 15%;
-  }
-
 }
 
 @media screen and (max-width:600px) {
   .s-intro {
     max-height: none;
-  }
-
-  .intro-content {
-    width: auto;
-  }
-
-  .intro-pic {
-    left: 20%;
-  }
-
-  .intro-grid {
-    left: 10%;
   }
 
   .intro-text {
@@ -2135,7 +2090,6 @@ input::-moz-focus-inner {
     font-size: 1.1rem;
     left: 30px;
   }
-
 }
 
 @media screen and (max-width:400px) {
@@ -2169,7 +2123,7 @@ input::-moz-focus-inner {
   color: #ffffff;
 }
 
-.s-about .row {
+.s-about > .row {
   max-width: 1140px;
 }
 
@@ -2201,9 +2155,6 @@ input::-moz-focus-inner {
   padding-left: 32px;
 }
 
-/* -------------------------------------------------------------------
- * ## timeline
- * ------------------------------------------------------------------- */
 .about-experience__timeline {
   margin-top: 1.6rem;
 }
@@ -2331,10 +2282,6 @@ input::-moz-focus-inner {
   margin-top: 0;
 }
 
-/* ------------------------------------------------------------------- 
- * responsive:
- * about
- * ------------------------------------------------------------------- */
 @media screen and (max-width:1200px) {
   .s-about {
     padding-top: 17.2rem;
@@ -2345,7 +2292,7 @@ input::-moz-focus-inner {
     padding-right: 30px;
   }
 
-  .about-experience__timeline .column::last-child {
+  .about-experience__timeline .column:last-child {
     padding-left: 30px;
   }
 
@@ -2391,8 +2338,12 @@ input::-moz-focus-inner {
 }
 
 @media screen and (max-width:900px) {
-  .s-about .row {
+  .s-about > .row {
     max-width: 700px;
+  }
+
+  .about-me__text {
+    columns: 1;
   }
 
   .about-me__buttons .column:first-child {
@@ -2404,8 +2355,6 @@ input::-moz-focus-inner {
   }
 
   .about-experience__timeline .column {
-    -webkit-flex: 0 0 100%;
-    -ms-flex: 0 0 100%;
     flex: 0 0 100%;
     max-width: 100%;
   }
@@ -2434,13 +2383,18 @@ input::-moz-focus-inner {
     padding-top: 16rem;
   }
 
-  .s-about .row {
+  .s-about > .row {
     max-width: 600px;
   }
 
 }
 
 @media screen and (max-width:600px) {
+  .about-me__buttons .column {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
   .about-me__buttons .column:first-child,
   .about-experience__timeline .column:first-child {
     padding-right: 10px;
@@ -2536,6 +2490,11 @@ input::-moz-focus-inner {
   opacity: .85;
 }
 
+.s-services > * {
+  position: relative;
+  z-index: 1;
+}
+
 .s-services h4 {
   font-weight: 400;
   color: #ffffff;
@@ -2581,10 +2540,6 @@ input::-moz-focus-inner {
   color: #cf6717;
 }
 
-/* ------------------------------------------------------------------- 
- * responsive:
- * services
- * ------------------------------------------------------------------- */
 @media screen and (max-width:1400px) {
   .services-list .item-service {
     padding: 0 20px;
@@ -2680,6 +2635,7 @@ input::-moz-focus-inner {
 
 .cta-content {
   max-width: 800px;
+  margin: 0 auto;
 }
 
 .cta-content .btn {
@@ -2695,10 +2651,6 @@ input::-moz-focus-inner {
   color: #000000;
 }
 
-/* ------------------------------------------------------------------- 
- * responsive:
- * cta
- * ------------------------------------------------------------------- */
 @media screen and (max-width:800px) {
   .s-cta {
     font-size: 2.2rem;
@@ -2706,13 +2658,6 @@ input::-moz-focus-inner {
 
   .cta-content {
     max-width: 600px;
-  }
-
-}
-
-@media screen and (max-width:600px) {
-  .s-cta {
-    font-size: 2rem;
   }
 
 }
@@ -2744,15 +2689,27 @@ input::-moz-focus-inner {
   margin-left: auto;
 }
 
+.masonry {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .masonry .grid-sizer,
 .masonry__brick {
-  width: 30%;
+  width: 33.3333%;
+}
+
+.masonry .grid-sizer {
+  padding: 0;
+  margin: 0;
+  height: 0;
 }
 
 .masonry__brick {
   float: left;
   padding: 0 30px;
   margin-bottom: 60px;
+  box-sizing: border-box;
 }
 
 .item-folio {
@@ -2760,10 +2717,9 @@ input::-moz-focus-inner {
   padding: 60px;
   background-color: #EFEFEF;
   transition: all 0.5s ease-in-out;
+  height: 100%;
 }
 
-/* item-folio thumb
- * -------------------------------------- */
 .item-folio__thumb {
   position: relative;
   overflow: hidden;
@@ -2814,6 +2770,7 @@ input::-moz-focus-inner {
 
 .item-folio__thumb img {
   vertical-align: bottom;
+  width: 100%;
 }
 
 .item-folio__thumb .item-folio__project-link {
@@ -2833,8 +2790,6 @@ input::-moz-focus-inner {
   right: 0;
 }
 
-/* item-folio thumb on hover 
- * ----------------------------------------------- */
 .item-folio__thumb:hover a::before,
 .item-folio__thumb:hover a::after {
   opacity: 1;
@@ -2846,8 +2801,6 @@ input::-moz-focus-inner {
   transform: translate3d(0, 0, 0);
 }
 
-/* item-folio text
- * ------------------------------------------------ */
 .item-folio__text {
   margin-top: 8.92%;
 }
@@ -2886,10 +2839,6 @@ input::-moz-focus-inner {
   display: none;
 }
 
-/* ------------------------------------------------------------------- 
- * responsive:
- * works
- * ------------------------------------------------------------------- */
 @media screen and (max-width:1200px) {
   .masonry__brick {
     padding: 0 24px;
@@ -2930,6 +2879,11 @@ input::-moz-focus-inner {
 }
 
 @media screen and (max-width:900px) {
+  .masonry .grid-sizer,
+  .masonry__brick {
+    width: 50%;
+  }
+
   .masonry__brick {
     padding: 0 16px;
     margin-bottom: 32px;
@@ -3297,6 +3251,7 @@ input::-moz-focus-inner {
   font-weight: 300;
   line-height: 1;
   margin: 5.6rem 0 8rem;
+  word-break: break-word;
 }
 
 .contact-infos {
@@ -3334,11 +3289,7 @@ input::-moz-focus-inner {
 .contact-social ul {
   list-style: none;
   margin-left: 0;
-  display: -ms-flexbox;
-  display: -webkit-flex;
   display: flex;
-  -webkit-flex-flow: row wrap;
-  -ms-flex-flow: row wrap;
   flex-flow: row wrap;
 }
 
@@ -3357,10 +3308,6 @@ input::-moz-focus-inner {
   display: none;
 }
 
-/* ------------------------------------------------------------------- 
-* responsive:
-* contact
-* ------------------------------------------------------------------- */
 @media screen and (max-width:1300px) {
   .contact-email {
     font-size: 10rem;
@@ -3458,9 +3405,6 @@ footer a:visited {
   color: #ffffff;
 }
 
-/* ------------------------------------------------------------------- 
- * ## copyright
- * ------------------------------------------------------------------- */
 .ss-copyright {
   margin-top: 2rem;
   padding-right: 80px;
@@ -3482,9 +3426,6 @@ footer a:visited {
   display: none;
 }
 
-/* ------------------------------------------------------------------- 
- * ## go to top
- * ------------------------------------------------------------------- */
 .ss-go-top {
   position: absolute;
   top: -1px;
@@ -3551,10 +3492,6 @@ footer a:visited {
   top: -165px;
 }
 
-/* ------------------------------------------------------------------- 
- * responsive:
- * footer
- * ------------------------------------------------------------------- */
 @media screen and (max-width:1200px) {
   .ss-go-top {
     right: 3rem;
